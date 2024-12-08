@@ -3,6 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+HOSTNAME = '127.0.0.1'
+PORT = '3306'
+DATABASE = 'flask_demo'
+USERNAME = 'root'
+PASSWORD = 'root'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{USERNAME}:{PASSWORD}@{HOSTNAME}:{PORT}/{DATABASE}?charset=utf8'
+
 db=SQLAlchemy(app)
 
 @app.route('/')
